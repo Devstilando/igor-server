@@ -1,0 +1,25 @@
+{
+  "name": "igor-server",
+  "version": "1.0.0",
+  "description": "API for IgorQR platform",
+  "main": "src/server.js",
+  "author": "aaroncadillac",
+  "repository": "https://gitlab.com/devstilando/igorproject/igor-server",
+  "license": "MPL-2.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "dotenv": "^16.3.2",
+    "fastify": "^4.25.2",
+    "mongoose": "^8.1.0",
+    "mongoose-paginate-v2": "^1.8.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "serve": "nodemon src/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
