@@ -9,6 +9,10 @@ const productSubCategorieSchema = new Schema({
     ref: 'ProductCategories',
     required: true,
   },
+  subCategory: {
+    type: String,
+    required: true,
+  },
   accountOwner: {
     type: Schema.Types.ObjectId,
     ref: 'Accounts',

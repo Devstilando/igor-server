@@ -12,28 +12,23 @@ const profileSchema = new Schema({
   },
   theme: {
     type: String,
-    default: 'dark',
-    required: true,
+    default: 'dark'
   },
   homePage: {
     type: String,
-    default: '/dashboard',
-    required: true,
+    default: '/dashboard'
   },
   language: {
     type: String,
-    default: 'en',
-    required: true,
+    default: 'es'
   },
   avatar: {
     type: String,
-    default: '/assets/img/avatars/avatar.jpg',
-    required: true,
+    default: '/img/avatars/avatar.svg'
   },
   pallette: {
     type: String,
-    default: 'indigo',
-    required: true,
+    default: 'indigo'
   },
   favorites: {
     type: Array

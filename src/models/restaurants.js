@@ -34,7 +34,7 @@ const restaurantsSchema = new Schema({
   },
   logo: {
     type: String,
-    required: true,
+    default: '/img/logos/restaurant-default-logo.svg'
   },
   phoneNumber: {
     type: String,
@@ -42,7 +42,6 @@ const restaurantsSchema = new Schema({
   },
   website: {
     type: String,
-    required: true,
   },
   openHours: {
     type: [ dateRangeSchema ],
