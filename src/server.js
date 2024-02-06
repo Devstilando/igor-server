@@ -12,7 +12,6 @@ fastify.register(routes)
 
 fastify.listen({ port: process.env.PORT || 3000 }, function (err, address) {
   if (err) {
-    console.log(`\n\n---- ERROR MALDITO ----\n\n`)
     fastify.log.error(err)
     process.exit(1)
   }

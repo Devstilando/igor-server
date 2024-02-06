@@ -4,10 +4,6 @@ import paginate from 'mongoose-paginate-v2';
 const Schema = mongoose.Schema;
 
 const productsSchema = new Schema({
-    hidden: {
-      type: Boolean,
-      default: false
-    },
     code: {
       type: String,
       required: true,
@@ -55,6 +51,10 @@ const productsSchema = new Schema({
       type: Boolean,
       default: false
     },
+    published: {
+      type: Boolean,
+      default: false
+    }
   }, {
   timestamps: true,
 });
