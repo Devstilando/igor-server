@@ -62,7 +62,10 @@ function AutoCrud (fastify, opts, next) {
 
   fastify.put('/:id', opts, async (req, reply) => {
     try {
-      const response = await opts.Model.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+      const response = await opts.Model.findOneAndUpdate({ _id: req.params.id }, req.body, { 
+        new: true,
+        runValidators: true
+      })
       if (!response) {
         reply.type('application/json').code(404).send({
           statusCode: 404,
