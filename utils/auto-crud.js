@@ -36,7 +36,8 @@ function AutoCrud (fastify, opts, next) {
       const response = await opts.Model.findById(req.params.id)
       if (!response) {
         reply.type('application/json').code(404).send({
-          statusCode: 404,
+          status: 404,
+          error: 'Not Found',
           message: `ID: ${ req.params.id } not found`
         })
       } else {
@@ -68,14 +69,29 @@ function AutoCrud (fastify, opts, next) {
       })
       if (!response) {
         reply.type('application/json').code(404).send({
-          statusCode: 404,
+          status: 404,
+          error: 'Not Found',
           message: `ID: ${ req.params.id } not found`
         })
       } else {
         reply.type('application/json').code(200).send(response)
       }
     } catch (err) {
-      throw new Error(err)
+      const requiredErrors = []
+      for (const key in err.errors) {
+        if (err.errors[key].kind === 'required') {
+          requiredErrors.push(err.errors[key].path)
+        }
+      }
+      if (requiredErrors.length > 0) {
+        reply.type('application/json').code(400).send({
+          status: 400,
+          error: 'Bad Request',
+          message: `Fields: [${ requiredErrors.join(', ') }] are required and cannot be empty`
+        })
+      } else {
+        throw new Error(err)
+      }
     }
   })
 
@@ -84,7 +100,8 @@ function AutoCrud (fastify, opts, next) {
       const response = await opts.Model.findOneAndDelete({ _id: req.params.id })
       if (!response) {
         reply.type('application/json').code(404).send({
-          statusCode: 404,
+          status: 404,
+          error: 'Not Found',
           message: `ID: ${ req.params.id } not found`
         })
       } else {
