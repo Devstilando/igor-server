@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@aaroncadillac/crudify-mongo@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@aaroncadillac/crudify-mongo/-/crudify-mongo-1.4.0.tgz#c4859b3da6675804ecf8be6a6a95c9a31fa9b988"
+  integrity sha512-SNdtEM7KAXoCdVn5gUuaybgviKSpwphDw40IZHRmJBLQf6ESj+92CJ15g/89EqvL+EnFbS2nzzmmVU/zJRmUqg==
+
 "@fastify/ajv-compiler@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@fastify/ajv-compiler/-/ajv-compiler-3.5.0.tgz#459bff00fefbf86c96ec30e62e933d2379e46670"

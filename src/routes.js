@@ -1,4 +1,4 @@
-import { AutoCrud } from "../utils/auto-crud.js"
+import { Crudify } from "@aaroncadillac/crudify-mongo"
 import { AccountModel } from "./models/accounts.js"
 import { ClientModel } from "./models/clients.js"
 import { FactoryZoneModel } from "./models/factoryZones.js"
@@ -19,81 +19,83 @@ import { TableModel } from "./models/tables.js"
 import { UserModel } from "./models/users.js"
 import { WaiterModel } from "./models/waiters.js"
 
+const API_PREFIX = '/api'
+
 const routes = ( fastify, opts, done ) => {
-  fastify.register(AutoCrud, {
-    prefix: '/api/users',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/users`,
     Model: UserModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/accounts',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/accounts`,
     Model: AccountModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/permissions',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/permissions`,
     Model: PermissionModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/policies',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/policies`,
     Model: PolicyModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/product-categories',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/product-categories`,
     Model: ProductCategoryModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/products',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/products`,
     Model: ProductModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/product-sub-categories',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/product-sub-categories`,
     Model: ProductSubCategoryModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/product-tags',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/product-tags`,
     Model: ProductTagModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/profile',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/profile`,
     Model: ProfileModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/roles',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/roles`,
     Model: RoleModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/restaurants',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/restaurants`,
     Model: RestaurantModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/factory-zones',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/factory-zones`,
     Model: FactoryZoneModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/tables',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/tables`,
     Model: TableModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/menus',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/menus`,
     Model: MenuModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/waiters',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/waiters`,
     Model: WaiterModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/restaurant-zones',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/restaurant-zones`,
     Model: RestaurantZoneModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/sales',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/sales`,
     Model: SaleModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/orders',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/orders`,
     Model: OrderModel
   })
-  fastify.register(AutoCrud, {
-    prefix: '/api/clients',
+  fastify.register(Crudify, {
+    url: `${API_PREFIX}/clients`,
     Model: ClientModel
   })
   done()

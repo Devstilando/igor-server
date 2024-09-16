@@ -13,33 +13,12 @@ const productInOrderSchema = new Schema({
     type: Number,
     required: true
   },
-  price: {
-    type: Number,
-    required: true
-  },
   clientId: {
     type: Schema.Types.ObjectId,
     ref: 'Clients'
   },
   clientName: {
-    type: String,
-    required: true
-  }
-})
-
-const subOrdersSchema = new Schema({
-  products: [{
-    type: productInOrderSchema,
-    required: true
-  }],
-  total: {
-    type: Number,
-    required: true
-  },
-  saleRelated: {
-    type: Schema.Types.ObjectId,
-    ref: 'Sales',
-    required: true
+    type: String
   }
 })
 
@@ -53,23 +32,17 @@ const orderSchema = new Schema({
     type: productInOrderSchema,
     required: true
   }],
-  total: {
-    type: Number,
-    required: true
-  },
-  subOrders: [{
-    type: subOrdersSchema
-  }],
   status: {
     type: String,
-    enum: ['open', 'payed', 'cancelled'],
+    enum: ['open', 'ready', 'waiting','cancelled'],
     default: 'open',
     required: true
   },
-  clientIds: [{
+  waiterId: {
     type: Schema.Types.ObjectId,
-    ref: 'Clients'
-  }]
+    ref: 'Waiters',
+    required: true
+  }
 }, {
   timestamps: true
 });
